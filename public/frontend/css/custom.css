@@ -571,3 +571,13 @@ p {
 .bg-primary {
     background-color: #114c86 !important;
 }
+
+.navbar-brand img {
+    width: 80px;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand img {
+        width: 60px;
+    }
+}

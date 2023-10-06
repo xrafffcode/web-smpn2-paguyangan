@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
     <div class="container py-2">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset(getWebConfiguration()->logo) }}" alt="logo" width="80">
+            <img src="{{ asset(getWebConfiguration()->logo) }}" alt="logo">
         </a>
 
         <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
