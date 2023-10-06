@@ -35,7 +35,7 @@
 
             @media (max-width: 767px) {
                 .bannerSwiper.swiper {
-                    width: 95%;
+                    width: 100%;
                 }
             }
         </style>
