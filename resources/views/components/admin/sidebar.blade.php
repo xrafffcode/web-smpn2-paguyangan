@@ -1,8 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
 
-        <img src="{{ asset('frontend/assets/images/logo-smp-removebg-preview.png') }}" class="sidebar-brand"
-            width="40">
+        <img src="{{ asset(getWebConfiguration()->logo) }}" class="sidebar-brand" width="40">
         <div class="sidebar-toggler not-active">
             <span></span>
             <span></span>
@@ -26,12 +25,16 @@
                     <span class="link-title">Manajemen Website</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse {{ request()->is('admin/banners*', 'admin/web-configuration') ? 'show' : '' }}"
+                <div class="collapse {{ request()->is('admin/banners*', 'admin/web-configuration', 'admin/galleries') ? 'show' : '' }}"
                     id="website-management">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('admin.banners.index') }}"
                                 class="nav-link {{ request()->is('admin/banners') ? ' active' : '' }}">Banner</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.galleries.index') }}"
+                                class="nav-link {{ request()->is('admin/galleries') ? ' active' : '' }}">Gallery</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.web-configuration') }}"

@@ -54,6 +54,10 @@
     </x-frontend.banner>
     <!-- ======= End Slider Section ======= -->
 
+    <!-- ======= Visi Misi Section ======= -->
+    <div class="container py-5">
+
+    </div>
 
     @push('plugin-scripts')
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

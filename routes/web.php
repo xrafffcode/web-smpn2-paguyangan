@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\Web\Frontend\LandingController::class, 'index'])->name('home');
+Route::get('/gallery', [\App\Http\Controllers\Web\Frontend\GalleryController::class, 'index'])->name('gallery');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'role:admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -23,6 +24,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'r
     Route::resource('banners', \App\Http\Controllers\Web\Admin\BannerController::class);
     Route::get('web-configuration', [\App\Http\Controllers\Web\Admin\WebConfigurationController::class, 'index'])->name('web-configuration');
     Route::put('web-configuration/{id}', [\App\Http\Controllers\Web\Admin\WebConfigurationController::class, 'update'])->name('web-configuration.update');
+
+    Route::resource('galleries', \App\Http\Controllers\Web\Admin\GalleryController::class);
 });
 
 

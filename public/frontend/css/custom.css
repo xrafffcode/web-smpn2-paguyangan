@@ -5,7 +5,7 @@ body {
 }
 
 :root {
-    --primary: #114c86;
+
     --black: #161616;
     --gray-900: #363A44;
 }
@@ -569,15 +569,34 @@ p {
 }
 
 .bg-primary {
-    background-color: #114c86 !important;
+    background-color: var(--primary) !important;
 }
 
 .navbar-brand img {
-    width: 80px;
+    width: 65px;
 }
 
 @media (max-width: 768px) {
     .navbar-brand img {
         width: 60px;
     }
+}
+
+.page-header{
+    background-color: #F6F7F9;
+    padding: 5rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-header h1{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.page-header p{
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-900);
 }

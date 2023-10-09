@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
             <ul class="navbar-nav   mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link {{ request()->is('/') ? ' active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -29,7 +29,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mitra Kami</a>
+                    <a class="nav-link {{ request()->is('gallery') ? ' active' : '' }}" href="{{ route('gallery') }}">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Blog</a>
