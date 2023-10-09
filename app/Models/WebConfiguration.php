@@ -17,6 +17,7 @@ class WebConfiguration extends Model
         'phone',
         'logo',
         'address',
+        'theme_color',
         'map',
         'facebook',
         'instagram',

@@ -38,6 +38,8 @@
                                 name="instagram" />
                             <x-input.text value="{{ $webConfiguration->youtube }}" label="Youtube Website"
                                 name="youtube" />
+                            <x-input.text value="{{ $webConfiguration->theme_color }}" label="Warna Website"
+                                name="theme_color" />
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">

@@ -8,8 +8,14 @@
     <title>{{ $title }}</title>
 
 
+
     <link rel="shortcut icon" href="{{ asset(getWebConfiguration()->logo) }}" type="image/x-icon">
 
+    <style>
+        :root{
+            --primary: {{ getWebConfiguration()->theme_color }};
+        }
+    </style>
     <link rel="stylesheet" href="{{ asset('frontend/css/app.css') }}?v={{ uniqid() }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}?v={{ uniqid() }}">
 

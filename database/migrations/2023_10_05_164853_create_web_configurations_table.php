@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('logo');
             $table->longText('map');
             $table->longText('address');
+            $table->string('theme_color')->default('#000000');
             $table->string('facebook');
             $table->string('instagram');
             $table->string('youtube');
