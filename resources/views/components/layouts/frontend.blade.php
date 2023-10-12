@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="title" content="{{ $title }}">
-    <meta name="description" content="{{ $description }}">
+    <meta name="description" content="{{ $description ?? '' }}">
     <meta name="keywords"
         content="smpn2, paguyangan, smp terbaik, smpn, smp negri, ppdb smpn2, smp negeri 2 paguyangan, negri, smp">
     <meta name="robots" content="index, follow">
@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://smpn2.xrafff.my.id/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $title }}">
-    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:description" content="{{ $description ?? '' }}">
     <meta property="og:image" content="https://foto.data.kemdikbud.go.id/getImage/20338383/3.jpg">
 
     <!-- Twitter Meta Tags -->
@@ -25,7 +25,7 @@
     <meta property="twitter:domain" content="smpn2.xrafff.my.id">
     <meta property="twitter:url" content="https://smpn2.xrafff.my.id/">
     <meta name="twitter:title" content="{{ $title }}">
-    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:description" content="{{ $description ?? '' }}">
     <meta name="twitter:image" content="https://foto.data.kemdikbud.go.id/getImage/20338383/3.jpg">
 
 
