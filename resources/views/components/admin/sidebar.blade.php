@@ -25,16 +25,20 @@
                     <span class="link-title">Manajemen Website</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse {{ request()->is('admin/banners*', 'admin/web-configuration', 'admin/galleries') ? 'show' : '' }}"
+                <div class="collapse {{ request()->is('admin/banners*', 'admin/web-configuration', 'admin/galleries*', 'admin/achievements*') ? 'show' : '' }}"
                     id="website-management">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('admin.banners.index') }}"
-                                class="nav-link {{ request()->is('admin/banners') ? ' active' : '' }}">Banner</a>
+                                class="nav-link {{ request()->is('admin/banners*') ? ' active' : '' }}">Banner</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.galleries.index') }}"
-                                class="nav-link {{ request()->is('admin/galleries') ? ' active' : '' }}">Gallery</a>
+                                class="nav-link {{ request()->is('admin/galleries*') ? ' active' : '' }}">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.achievements.index') }}"
+                                class="nav-link {{ request()->is('admin/achievements*') ? ' active' : '' }}">Prestasi</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.web-configuration') }}"

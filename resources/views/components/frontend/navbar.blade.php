@@ -28,8 +28,21 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle {{ request()->is('prestasi') ? ' active' : '' }}" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Akademik
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" role="menu">
+                        <li><a class="dropdown-item {{ request()->is('prestasi') ? ' active' : '' }}"
+                                href="{{ route('achievement') }}">Prestasi</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+
+                    </ul>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('gallery') ? ' active' : '' }}" href="{{ route('gallery') }}">Gallery</a>
+                    <a class="nav-link {{ request()->is('gallery') ? ' active' : '' }}"
+                        href="{{ route('gallery') }}">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Blog</a>
