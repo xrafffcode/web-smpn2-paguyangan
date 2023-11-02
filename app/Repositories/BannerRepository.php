@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\BannerRepositoryInterface as InterfacesBannerRepositoryInterface;
 use App\Models\Banner;
+use Illuminate\Support\Facades\Storage;
 
 class BannerRepository implements InterfacesBannerRepositoryInterface
 {
@@ -38,11 +39,17 @@ class BannerRepository implements InterfacesBannerRepositoryInterface
         if (isset($data['desktop_image'])) {
             $desktopImage = $data['desktop_image']->store('banners', 'public');
             $data['desktop_image'] = $desktopImage;
+
+            $oldDesktopImage = $banner->desktop_image;
+            Storage::disk('public')->delete($oldDesktopImage);
         }
 
         if (isset($data['mobile_image'])) {
             $mobileImage = $data['mobile_image']->store('banners', 'public');
             $data['mobile_image'] = $mobileImage;
+
+            $oldMobileImage = $banner->mobile_image;
+            Storage::disk('public')->delete($oldMobileImage);
         }
 
         return $banner->update($data);
@@ -51,6 +58,18 @@ class BannerRepository implements InterfacesBannerRepositoryInterface
     public function deleteBanner(string $id)
     {
         $banner = Banner::find($id);
+
+        $desktopImage = $banner->desktop_image;
+        $mobileImage = $banner->mobile_image;
+
+        if (isset($desktopImage)) {
+            Storage::disk('public')->delete($desktopImage);
+        }
+
+        if (isset($mobileImage)) {
+            Storage::disk('public')->delete($mobileImage);
+        }
+
         return $banner->delete();
     }
 }

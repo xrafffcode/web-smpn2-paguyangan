@@ -21,7 +21,7 @@ class AchievementController extends Controller
 
     public function index()
     {
-        $achievements = $this->achievementRepository->getAllAchievements();
+        $achievements = $this->achievementRepository->getAllAchievements()->sortByDesc('year');
 
         return view('pages.frontend.achievements.index', compact('achievements'));
     }

@@ -11,7 +11,7 @@
 
 
     <div class="container mt-5 mb-5">
-        <table class="table table-striped">
+        <table class="table table-striped shadow-sm">
             <tr>
                 <th>No</th>
                 <th>Nama</th>
@@ -19,7 +19,7 @@
                 <th>Tingkat</th>
                 <th>Tahun</th>
             </tr>
-            @foreach ($achievements as $achievement)
+            @forelse ($achievements as $achievement)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $achievement->name }}</td>
@@ -27,7 +27,13 @@
                     <td>{{ $achievement->level }}</td>
                     <td>{{ $achievement->year }}</td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="5" class="text-center">
+                        Kami belum memiliki prestasi
+                    </td>
+                </tr>
+            @endforelse
         </table>
     </div>
 

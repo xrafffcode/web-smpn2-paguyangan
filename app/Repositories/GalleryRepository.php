@@ -14,9 +14,7 @@ class GalleryRepository implements GalleryRepositoryInterface
 
     public function getGalleryById(string $id)
     {
-        $gallery = Gallery::findorfail($id);
-
-        return $gallery;
+        return Gallery::find($id);
     }
 
     public function createGallery(array $data)
@@ -43,7 +41,6 @@ class GalleryRepository implements GalleryRepositoryInterface
 
     public function deleteGallery(string $id)
     {
-        $gallery = Gallery::find($id);
-        return $gallery->delete();
+        return Gallery::find($id)->delete();
     }
 }

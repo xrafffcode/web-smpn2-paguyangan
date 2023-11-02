@@ -25,7 +25,7 @@ class AchievementController extends Controller
     {
         $achievements = $this->achievementRepository->getAllAchievements();
 
-        return view('pages.admin.website-management.achievements.index', compact('achievements'));
+        return view('pages.admin.achievements.index', compact('achievements'));
     }
 
     /**
@@ -33,7 +33,7 @@ class AchievementController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.website-management.achievements.create');
+        return view('pages.admin.achievements.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class AchievementController extends Controller
     {
         $achievement = $this->achievementRepository->getAchievementById($id);
 
-        return view('pages.admin.website-management.achievements.edit', compact('achievement'));
+        return view('pages.admin.achievements.edit', compact('achievement'));
     }
 
     /**

@@ -1,4 +1,8 @@
 <x-layouts.admin title="Gallery">
+    @push('plugin-styles')
+        <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/lightbox/css/lightbox.css') }}">
+    @endpush
+
     <div class="d-flex align-items-center justify-content-between">
         <nav class="page-breadcrumb mb-0">
             <ol class="breadcrumb">
@@ -33,7 +37,11 @@
                                     {{ $gallery->description }}
                                 </td>
                                 <td>
-                                    <img src="{{ asset($gallery->image) }}" alt="image" width="98">
+                                    <a href="{{ asset($gallery->image) }}" class="d-block" data-lightbox="gambar"
+                                        data-title="{{ $gallery->description }}">
+                                        <img src="{{ asset($gallery->image) }}" alt="image"
+                                            class="img-table-lightbox">
+                                    </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.galleries.edit', $gallery->id) }}"
@@ -53,4 +61,15 @@
             </x-admin.card>
         </div>
     </div>
+
+    @push('plugin-scripts')
+        <script src="{{ asset('frontend/assets/plugins/lightbox/js/lightbox-plus-jquery.min.js') }}"></script>
+
+        <script>
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true
+            })
+        </script>
+    @endpush
 </x-layouts.admin>

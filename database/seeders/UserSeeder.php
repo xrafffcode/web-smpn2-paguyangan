@@ -20,5 +20,13 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->assignRole('admin');
+
+        $petugas = User::create([
+            'name' => 'Petugas',
+            'email' => 'petugas@smpn2.sch.id',
+            'password' => bcrypt('password'),
+        ]);
+
+        $petugas->assignRole('petugas');
     }
 }

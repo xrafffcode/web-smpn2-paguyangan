@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\Web\Frontend\LandingController::class, 'index'])->name('home');
 Route::get('/gallery', [\App\Http\Controllers\Web\Frontend\GalleryController::class, 'index'])->name('gallery');
+Route::get('/prestasi', [\App\Http\Controllers\Web\Frontend\AchievementController::class, 'index'])->name('achievement');
+Route::get('/kelulusan', [\App\Http\Controllers\Web\Frontend\GraduationController::class, 'index'])->name('graduation');
+
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'role:admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -26,6 +29,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'r
     Route::put('web-configuration/{id}', [\App\Http\Controllers\Web\Admin\WebConfigurationController::class, 'update'])->name('web-configuration.update');
 
     Route::resource('galleries', \App\Http\Controllers\Web\Admin\GalleryController::class);
+    Route::resource('achievements', \App\Http\Controllers\Web\Admin\AchievementController::class);
+    Route::resource('guestbooks', \App\Http\Controllers\Web\Admin\GuestBookController::class);
+    Route::resource('graduations', \App\Http\Controllers\Web\Admin\GraduationController::class);
+    Route::resource('teachers', \App\Http\Controllers\Web\Admin\TeacherController::class);
+});
+
+Route::group(['prefix' => 'petugas', 'as' => 'petugas.', 'middleware' => ['auth', 'role:petugas']], function () {
+    Route::resource('guestbooks', \App\Http\Controllers\Web\Admin\GuestBookController::class);
 });
 
 

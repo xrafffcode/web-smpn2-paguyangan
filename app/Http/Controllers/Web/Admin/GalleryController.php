@@ -25,7 +25,7 @@ class GalleryController extends Controller
     {
         $galleries = $this->galleryRepository->getAllGalleries();
 
-        return view('pages.admin.website-management.galleries.index', compact('galleries'));
+        return view('pages.admin.galleries.index', compact('galleries'));
     }
 
     /**
@@ -33,7 +33,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.website-management.galleries.create');
+        return view('pages.admin.galleries.create');
     }
 
     /**
@@ -41,11 +41,17 @@ class GalleryController extends Controller
      */
     public function store(StoreGalleryRequest $request)
     {
-        $this->galleryRepository->createGallery($request->all());
+        try {
+            $this->galleryRepository->createGallery($request->all());
 
-        Swal::success('Berhasil', 'Galeri berhasil ditambahkan.');
+            Swal::toast('Data berhasil ditambahkan', 'success');
 
-        return redirect()->route('admin.galleries.index');
+            return redirect()->route('admin.galleries.index');
+        } catch (\Exception $e) {
+            Swal::error('Gagal', 'Galeri gagal ditambahkan');
+
+            return redirect()->back()->withInput();
+        }
     }
 
     /**

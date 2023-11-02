@@ -1,21 +1,17 @@
-<x-layouts.frontend title="Gallery Smp">
+<x-layouts.frontend title="Gallery">
 
     @push('plugin-styles')
         <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/lightbox/css/lightbox.css') }}">
     @endpush
 
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1>Gallery</h1>
-                    <p class="lead">
-                        Berbagai Foto Kegiatan {{ getWebConfiguration()->name }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-frontend.header>
+        <x-slot name="title">
+            Gallery
+        </x-slot>
+        <x-slot name="description">
+            Berbagai Foto Kegiatan {{ getWebConfiguration()->name }}
+        </x-slot>
+    </x-frontend.header>
 
     <div class="container mt-5 mb-5">
         <div class="row ">
@@ -23,7 +19,7 @@
                 <div class="col-md-4 col-sm-6 col-6 mb-3">
                     <a href="{{ asset($gallery->image) }}" class="d-block" data-lightbox="gambar"
                         data-title="{{ $gallery->description }}">
-                        <img src="{{ asset($gallery->image) }}" alt="image" class="img-fluid">
+                        <img src="{{ asset($gallery->image) }}" alt="image" class="img-gallery">
                     </a>
                 </div>
             @endforeach

@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_news', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->uuid('id')->primary();
-
             $table->string('title');
-            $table->longText('description')->nullable();
-
+            $table->string('slug');
+            $table->longText('content');
+            $table->uuid('news_category_id');
+            $table->string('thumbnail');
+            $table->boolean('is_published');
+            $table->date('published_at');
+            $table->foreign('news_category_id')->references('id')->on('news_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_news');
+        Schema::dropIfExists('news');
     }
 };

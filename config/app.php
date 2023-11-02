@@ -172,7 +172,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         RepositoryServiceProvider::class,
-
+        Sarfraznawaz2005\VisitLog\VisitLogServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -188,7 +188,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
+        'VisitLog' => Sarfraznawaz2005\VisitLog\Facades\VisitLog::class,
     ])->toArray(),
 
 ];

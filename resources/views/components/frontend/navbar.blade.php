@@ -33,10 +33,10 @@
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Akademik
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" role="menu">
-                        <li><a class="dropdown-item {{ request()->is('prestasi') ? ' active' : '' }}"
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm p-1" role="menu">
+                        <li><a class="dropdown-item rounded-1 {{ request()->is('prestasi') ? ' active' : '' }}"
                                 href="{{ route('achievement') }}">Prestasi</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item rounded-1" href="#">Another action</a></li>
 
                     </ul>
                 </li>
@@ -45,10 +45,8 @@
                         href="{{ route('gallery') }}">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">FAQ</a>
+                    <a class="nav-link {{ request()->is('kelulusan') ? ' active' : '' }}"
+                        href="{{ route('graduation') }}">Pengumuman Kelulusan</a>
                 </li>
 
             </ul>
