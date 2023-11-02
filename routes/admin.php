@@ -1,0 +1,19 @@
+<?php
+
+use App\Http\Controllers\Web\Admin\DashboardController;
+use Illuminate\Support\Facades\Route;
+
+
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('banners', \App\Http\Controllers\Web\Admin\BannerController::class);
+    Route::get('web-configuration', [\App\Http\Controllers\Web\Admin\WebConfigurationController::class, 'index'])->name('web-configuration');
+    Route::put('web-configuration/{id}', [\App\Http\Controllers\Web\Admin\WebConfigurationController::class, 'update'])->name('web-configuration.update');
+
+    Route::resource('galleries', \App\Http\Controllers\Web\Admin\GalleryController::class);
+    Route::resource('achievements', \App\Http\Controllers\Web\Admin\AchievementController::class);
+    Route::resource('guestbooks', \App\Http\Controllers\Web\Admin\GuestBookController::class);
+    Route::resource('graduations', \App\Http\Controllers\Web\Admin\GraduationController::class);
+    Route::resource('teachers', \App\Http\Controllers\Web\Admin\TeacherController::class);
+});
