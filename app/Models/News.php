@@ -37,10 +37,16 @@ class News extends Model
         return $this->belongsTo(NewsCategory::class);
     }
 
+    public function setThumbnailAttribute($value)
+    {
+        $this->attributes['thumbnail'] = $value->store('assets/news/thumbnails', 'public');
+    }
+
     public function getThumbnailAttribute($value)
     {
         return asset('storage/' . $value);
     }
+
 
 
     public function scopePublished($query)

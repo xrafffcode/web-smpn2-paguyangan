@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Web\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
-
+use Spatie\Permission\Contracts\Role;
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -17,4 +17,5 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::resource('graduations', \App\Http\Controllers\Web\Admin\GraduationController::class);
     Route::resource('teachers', \App\Http\Controllers\Web\Admin\TeacherController::class);
     Route::resource('news-categories', \App\Http\Controllers\Web\Admin\NewsCategoryController::class);
+    Route::resource('news', \App\Http\Controllers\Web\Admin\NewsController::class);
 });

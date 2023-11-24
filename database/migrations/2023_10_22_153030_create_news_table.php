@@ -18,7 +18,7 @@ return new class extends Migration
             $table->longText('content');
             $table->uuid('news_category_id');
             $table->string('thumbnail');
-            $table->boolean('is_published');
+            $table->boolean('is_published')->default(true);
             $table->date('published_at');
             $table->foreign('news_category_id')->references('id')->on('news_categories')->onDelete('cascade');
             $table->timestamps();
