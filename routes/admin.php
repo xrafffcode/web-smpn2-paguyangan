@@ -16,4 +16,5 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::resource('guestbooks', \App\Http\Controllers\Web\Admin\GuestBookController::class);
     Route::resource('graduations', \App\Http\Controllers\Web\Admin\GraduationController::class);
     Route::resource('teachers', \App\Http\Controllers\Web\Admin\TeacherController::class);
+    Route::resource('news-categories', \App\Http\Controllers\Web\Admin\NewsCategoryController::class);
 });

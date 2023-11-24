@@ -49,6 +49,25 @@
                         <span class="link-title">Data Guru</span>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->is('admin/news-categories*') ? ' active' : '' }}">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#news-management" role="button"
+                        aria-expanded="{{ request()->is('admin/news-categories*') ? ' true' : '' }}"
+                        aria-controls="news-management">
+                        <i class="link-icon" data-feather="book-open"></i>
+                        <span class="link-title">Manajemen Berita</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                    </a>
+                    <div class="collapse {{ request()->is('admin/news-categories*') ? 'show' : '' }}" id="news-management">
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.news-categories.index') }}"
+                                    class="nav-link {{ request()->is('admin/news-categories*') ? ' active' : '' }}">
+                                    Kategori Berita
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item {{ request()->is('admin/banners*', 'admin/web-configuration') ? ' active' : '' }}">
                     <a class="nav-link" data-bs-toggle="collapse" href="#website-management" role="button"
                         aria-expanded="{{ request()->is('admin/banners*', 'admin/web-configuration') ? ' true' : '' }}"
