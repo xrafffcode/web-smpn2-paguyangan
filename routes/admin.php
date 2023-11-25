@@ -18,4 +18,5 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::resource('teachers', \App\Http\Controllers\Web\Admin\TeacherController::class);
     Route::resource('news-categories', \App\Http\Controllers\Web\Admin\NewsCategoryController::class);
     Route::resource('news', \App\Http\Controllers\Web\Admin\NewsController::class);
+    Route::resource('extracurriculars', \App\Http\Controllers\Web\Admin\ExtracurricularController::class);
 });

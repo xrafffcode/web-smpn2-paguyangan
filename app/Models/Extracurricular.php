@@ -22,4 +22,14 @@ class Extracurricular extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/' . $this->image);
+    }
+
+    public function setImageAttribute($value)
+    {
+        $this->attributes['image'] = $value->store('assets/extracurricular', 'public');
+    }
 }

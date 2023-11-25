@@ -43,6 +43,12 @@
                         <span class="link-title">Prestasi</span>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->is('admin/extracurriculars*') ? ' active' : '' }}">
+                    <a href="{{ route('admin.extracurriculars.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="activity"></i>
+                        <span class="link-title">Ekstrakulikuler</span>
+                    </a>
+                </li>
                 <li class="nav-item {{ request()->is('admin/teachers*') ? ' active' : '' }}">
                     <a href="{{ route('admin.teachers.index') }}" class="nav-link">
                         <i class="link-icon" data-feather="users"></i>

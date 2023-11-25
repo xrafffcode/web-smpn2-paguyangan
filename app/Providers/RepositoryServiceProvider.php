@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Interfaces\AchievementRepositoryInterface;
 use App\Interfaces\BannerRepositoryInterface as InterfacesBannerRepositoryInterface;
+use App\Interfaces\ExtracurricularRepositoryInterface;
 use App\Interfaces\GalleryRepositoryInterface;
 use App\Interfaces\GraduationRepositoryInterface;
 use App\Interfaces\GuestBookRepositoryInterface;
@@ -13,6 +14,7 @@ use App\Interfaces\TeacherRepositoryInterface;
 use App\Interfaces\WebConfigurationRepositoryInterface;
 use App\Repositories\AchievementRepository;
 use App\Repositories\BannerRepository;
+use App\Repositories\ExtracurricularRepository;
 use App\Repositories\GalleryRepository;
 use App\Repositories\GraduationRepository;
 use App\Repositories\GuestBookRepository;
@@ -40,6 +42,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(TeacherRepositoryInterface::class, TeacherRepository::class);
         $this->app->bind(NewsCategoryRepositoryInterface::class, NewsCategoryRepository::class);
         $this->app->bind(NewsRepositoryInterface::class, NewsRepository::class);
+        $this->app->bind(ExtracurricularRepositoryInterface::class, ExtracurricularRepository::class);
     }
 
     /**
