@@ -19,3 +19,5 @@ Route::get('/', [\App\Http\Controllers\Web\Frontend\LandingController::class, 'i
 Route::get('/gallery', [\App\Http\Controllers\Web\Frontend\GalleryController::class, 'index'])->name('gallery');
 Route::get('/prestasi', [\App\Http\Controllers\Web\Frontend\AchievementController::class, 'index'])->name('achievement');
 Route::get('/kelulusan', [\App\Http\Controllers\Web\Frontend\GraduationController::class, 'index'])->name('graduation');
+Route::get('/ekstrakurikuler', [\App\Http\Controllers\Web\Frontend\ExtracurricularController::class, 'index'])->name('extracurricular');
+Route::get('/guru', [\App\Http\Controllers\Web\Frontend\TeacherController::class, 'index'])->name('teacher');

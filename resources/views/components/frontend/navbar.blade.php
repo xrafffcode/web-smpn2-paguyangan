@@ -15,28 +15,27 @@
                     <a class="nav-link {{ request()->is('/') ? ' active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ request()->is('guru') ? ' active' : '' }}" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Tentang Kami
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item {{ request()->is('guru') ? ' active' : '' }}"
+                                href="{{ route('teacher') }}">Guru</a></li>
+
                     </ul>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle {{ request()->is('prestasi') ? ' active' : '' }}" href="#"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ request()->is('prestasi', 'ekstrakurikuler') ? ' active' : '' }}"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Akademik
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm p-1" role="menu">
                         <li><a class="dropdown-item rounded-1 {{ request()->is('prestasi') ? ' active' : '' }}"
                                 href="{{ route('achievement') }}">Prestasi</a></li>
-                        <li><a class="dropdown-item rounded-1" href="#">Another action</a></li>
+                        <li><a class="dropdown-item rounded-1 {{ request()->is('ekstrakurikuler') ? ' active' : '' }}"
+                                href="{{ route('extracurricular') }}">Ekstarkulikuler</a>
+                        </li>
 
                     </ul>
                 </li>
