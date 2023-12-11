@@ -1,28 +1,37 @@
-<x-layouts.admin title="Edit Kategori Berita">
+<x-layouts.admin title="Edit Berita">
 
 
     <div class="d-flex align-items-center justify-content-between">
         <nav class="page-breadcrumb mb-0">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Manajemen Berita</a></li>
-                <li class="breadcrumb-item ">Kategori</li>
+                <li class="breadcrumb-item ">Berita</li>
                 <li class="breadcrumb-item active">Edit</li>
 
             </ol>
         </nav>
-        <a href="{{ route('admin.news-categories.index') }}" class="btn btn-danger btn-sm ml-auto mb-3">Kembali</a>
+        <a href="{{ route('admin.news.index') }}" class="btn btn-danger btn-sm ml-auto mb-3">Kembali</a>
     </div>
 
     <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
-            <x-admin.card title="Edit Data Kategori Berita">
-                <form action="{{ route('admin.news-categories.update', $category->id) }}" method="POST"
-                    enctype="multipart/form-data">
+            <x-admin.card title="Tambah Data Berita">
+                <form action="{{ route('admin.news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <x-input.text label="Title " name="title" id="title" value="{{ $category->title }}" />
-                    <x-input.text label="Slug " name="slug" id="slug" value="{{ $category->slug }}" />
-                    <x-input.textarea label="Description " name="description" value="{{ $category->description }}" />
+                    <x-input.select label="Kategori" name="news_category_id" id="news_category_id">
+                        <option value="">Pilih Kategori</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ $news->news_category_id == $category->id ? 'selected' : '' }}>
+                                {{ $category->title }}
+                            </option>
+                        @endforeach
+                    </x-input.select>
+                    <x-input.text label="Judul" name="title" id="title" :value="$news->title" />
+                    <x-input.text label="Slug" name="slug" id="slug" :value="$news->slug" />
+                    <x-input.mde label="Konten" name="content" id="content" value="{{ $news->content }}" />
+                    <x-input.file label="Thumbnail" name="thumbnail" id="thumbnail" />
                     <x-button.primary class="float-end" type="submit">
                         Simpan
                     </x-button.primary>

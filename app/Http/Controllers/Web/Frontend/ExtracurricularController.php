@@ -24,4 +24,14 @@ class ExtracurricularController extends Controller
 
         return view('pages.frontend.extracurricular.index', compact('extracurriculars'));
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $extracurricular = $this->extracurricularRepository->getExtracurricularById($id);
+
+        return view('pages.frontend.extracurricular.show', compact('extracurricular'));
+    }
 }

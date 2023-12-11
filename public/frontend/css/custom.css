@@ -630,8 +630,24 @@ p {
     object-fit: cover;
 }
 
-.card-teacher .card-img-top,
 .card-eskul .card-img-top {
     height: 300px;
     object-fit: cover;
+}
+
+
+.card-img-teacher {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.card-teacher {
+    transition: all 0.3s ease-in-out;
+}
+
+.card-teacher:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
 }

@@ -44,7 +44,7 @@ class TeacherController extends Controller
     {
         $this->teacherRepository->createTeacher($request->all());
 
-        Swal::success('Berhasil', 'Data guru berhasil ditambahkan');
+        Swal::toast('Berhasil menambahkan guru', 'success');
 
         return redirect()->route('admin.teachers.index');
     }
@@ -64,7 +64,9 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $teacher = $this->teacherRepository->getTeacherById($id);
+
+        return view('pages.admin.teachers.edit', compact('teacher'));
     }
 
     /**
@@ -72,7 +74,11 @@ class TeacherController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->teacherRepository->updateTeacher($request->all(), $id);
+
+        Swal::toast('Data guru berhasil diubah', 'success');
+
+        return redirect()->route('admin.teachers.index');
     }
 
     /**

@@ -24,7 +24,6 @@
     <script>
         var simplemde = new SimpleMDE({
             element: document.getElementById("mde"),
-
         });
     </script>
 @endpush

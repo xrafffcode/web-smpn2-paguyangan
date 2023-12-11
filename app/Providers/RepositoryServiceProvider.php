@@ -10,6 +10,7 @@ use App\Interfaces\GraduationRepositoryInterface;
 use App\Interfaces\GuestBookRepositoryInterface;
 use App\Interfaces\NewsCategoryRepositoryInterface;
 use App\Interfaces\NewsRepositoryInterface;
+use App\Interfaces\StudentRepositoryInterface;
 use App\Interfaces\TeacherRepositoryInterface;
 use App\Interfaces\WebConfigurationRepositoryInterface;
 use App\Repositories\AchievementRepository;
@@ -20,6 +21,7 @@ use App\Repositories\GraduationRepository;
 use App\Repositories\GuestBookRepository;
 use App\Repositories\NewsCategoryRepository;
 use App\Repositories\NewsRepository;
+use App\Repositories\StudentRepository;
 use App\Repositories\TeacherRepository;
 use App\Repositories\WebConfigurationRepository;
 use Illuminate\Support\ServiceProvider;
@@ -43,6 +45,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(NewsCategoryRepositoryInterface::class, NewsCategoryRepository::class);
         $this->app->bind(NewsRepositoryInterface::class, NewsRepository::class);
         $this->app->bind(ExtracurricularRepositoryInterface::class, ExtracurricularRepository::class);
+        $this->app->bind(StudentRepositoryInterface::class, StudentRepository::class);
     }
 
     /**

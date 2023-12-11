@@ -4,7 +4,7 @@
     <div class="d-flex align-items-center justify-content-between">
         <nav class="page-breadcrumb mb-0">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Data Guru</a></li>
+                <li class="breadcrumb-item"><a href="#">Data Guru Dan Karyawan</a></li>
                 <li class="breadcrumb-item active">Create</li>
 
             </ol>

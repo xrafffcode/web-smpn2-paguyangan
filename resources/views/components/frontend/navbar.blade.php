@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
     <div class="container py-2">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset(getWebConfiguration()->logo) }}" alt="logo">
         </a>
 
@@ -15,38 +15,52 @@
                     <a class="nav-link {{ request()->is('/') ? ' active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ request()->is('guru') ? ' active' : '' }}" href="#"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Tentang Kami
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item {{ request()->is('guru') ? ' active' : '' }}"
-                                href="{{ route('teacher') }}">Guru</a></li>
-
-                    </ul>
-                </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle {{ request()->is('prestasi', 'ekstrakurikuler') ? ' active' : '' }}"
+                    <a class="nav-link dropdown-toggle {{ request()->is('guru-dan-karyawan', 'struktur-organisasi', 'visi-misi', 'siswa', 'ekstrakurikuler*') ? ' active' : '' }}"
                         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Akademik
+                        Profil Sekolah
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm p-1" role="menu">
-                        <li><a class="dropdown-item rounded-1 {{ request()->is('prestasi') ? ' active' : '' }}"
-                                href="{{ route('achievement') }}">Prestasi</a></li>
-                        <li><a class="dropdown-item rounded-1 {{ request()->is('ekstrakurikuler') ? ' active' : '' }}"
-                                href="{{ route('extracurricular') }}">Ekstarkulikuler</a>
+                    <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm p-1">
+                        <li><a class="dropdown-item rounded-1 {{ request()->is('visi-misi') ? ' active' : '' }}"
+                                href="{{ route('vision-mission') }}">Visi Misi</a></li>
+                        <li><a class="dropdown-item rounded-1 mt-1 {{ request()->is('guru-dan-karyawan') ? ' active' : '' }}"
+                                href="{{ route('teacher') }}">Guru Dan Karyawan</a></li>
+                        <li>
+                            <a class="dropdown-item rounded-1 mt-1 {{ request()->is('siswa') && request('status') == 'active' ? ' active' : '' }}"
+                                href="{{ route('student', ['status' => 'active']) }}">Siswa</a>
                         </li>
+                        <a class="dropdown-item rounded-1 mt-1 {{ request()->has('status') && request('status') == 'inactive' ? ' active' : '' }}"
+                            href="{{ route('student', ['status' => 'inactive']) }}">Alumni</a>
+                </li>
+                <li><a class="dropdown-item rounded-1 mt-1 {{ request()->is('struktur-organisasi') ? ' active' : '' }}"
+                        href="{{ route('organizational-structure') }}">Struktur Organisasi</a></li>
+            </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle {{ request()->is('prestasi', 'ekstrakurikuler*') ? ' active' : '' }}"
+                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Akademik
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm p-1" role="menu">
+                    <li><a class="dropdown-item rounded-1 {{ request()->is('prestasi') ? ' active' : '' }}"
+                            href="{{ route('achievement') }}">Prestasi</a></li>
+                    <li><a class="dropdown-item rounded-1 mt-1 {{ request()->is('ekstrakurikuler*') ? ' active' : '' }}"
+                            href="{{ route('extracurricular') }}">Ekstarkulikuler</a>
+                    </li>
 
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('gallery') ? ' active' : '' }}"
-                        href="{{ route('gallery') }}">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->is('kelulusan') ? ' active' : '' }}"
-                        href="{{ route('graduation') }}">Pengumuman Kelulusan</a>
-                </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('berita') ? ' active' : '' }}"
+                    href="{{ route('news') }}">Berita</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('gallery') ? ' active' : '' }}"
+                    href="{{ route('gallery') }}">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('kelulusan') ? ' active' : '' }}"
+                    href="{{ route('graduation') }}">Pengumuman Kelulusan</a>
+            </li>
 
             </ul>
 

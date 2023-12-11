@@ -17,13 +17,19 @@ return new class extends Migration
             $table->longText('description');
             $table->string('email');
             $table->string('phone');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->longText('map');
             $table->longText('address');
             $table->string('theme_color')->default('#000000');
             $table->string('facebook');
             $table->string('instagram');
             $table->string('youtube');
+            $table->string('headmaster_name');
+            $table->string('headmaster_image')->nullable();
+            $table->longText('headmaster_message');
+            $table->longText('vision');
+            $table->longText('mission');
+            $table->string('organization_structure')->nullable();
 
             $table->timestamps();
         });

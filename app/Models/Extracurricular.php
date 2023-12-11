@@ -30,6 +30,8 @@ class Extracurricular extends Model
 
     public function setImageAttribute($value)
     {
-        $this->attributes['image'] = $value->store('assets/extracurricular', 'public');
+        if ($value) {
+            $this->attributes['image'] = $value->store('assets/extracurricular', 'public');
+        }
     }
 }

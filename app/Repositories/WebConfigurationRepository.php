@@ -16,11 +16,6 @@ class WebConfigurationRepository implements InterfacesWebConfigurationRepository
     {
         $webConfiguration = WebConfiguration::first();
 
-        if (isset($data['logo'])) {
-            $logo = $data['logo']->store('web-configurations', 'public');
-            $data['logo'] = $logo;
-        }
-
         return $webConfiguration->update($data);
     }
 }

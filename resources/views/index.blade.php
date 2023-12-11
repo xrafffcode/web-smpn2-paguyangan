@@ -80,22 +80,18 @@
         <div class="container">
             <div class="row justify-content-center align-items-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <img src="https://via.placeholder.com/300x300" alt="placeholder" class="img-fluid rounded-2">
+                    <img src="{{ getWebConfiguration()->headmaster_image }}" alt="placeholder"
+                        class="img-fluid rounded-2">
+                    <p class="text-center mt-3">
+                        {{ getWebConfiguration()->headmaster_name }}
+                    </p>
                 </div>
                 <div class="col-12 col-md-6 col-lg-8 mb-3">
                     <div class="badge bg-primary text-white mb-3">
                         Sambutan Kepala Sekolah
                     </div>
                     <p>
-                        Salam. Halo Bapak Ibu Guru, para siswa, dan ayah bunda, apa kabar? Semoga semuanya sehat, tetap
-                        semangat, optimis, dan gembira dalam aktivitas masing-masing. Marilah kita senantiasa bersyukur
-                        kepada Tuhan bahwasannya kita semua masih diperbolehkan menghirup nafas kehidupan, masih
-                        diperbolehkan berkumpul dengan orang-orang yang kita sayangi, dan masih boleh melakukan
-                        aktivitas kita meskipun dalam situasi dan kondisi yang berbeda dari biasanya.
-                        <br>
-                        <br>
-                        Saya mengucapkan terima kasih yang setulus-tulusnya atas kerja sama yang baik antara keluarga
-                        dengan sekolah selama pandemi covid-19 ini
+                        {!! \Illuminate\Support\Str::markdown(getWebConfiguration()->headmaster_message) !!}
                     </p>
                 </div>
             </div>
@@ -106,7 +102,7 @@
     <div class="container py-5">
         <div class="row ">
             @foreach ($galleries as $gallery)
-                <div class="col-md-4 col-sm-6 col-6 mb-3">
+                <div class="col-6 col-sm-6 col-md-4  col-lg-4 mb-3">
                     <a href="{{ asset($gallery->image) }}" class="d-block" data-lightbox="gambar"
                         data-title="{{ $gallery->description }}">
                         <img src="{{ asset($gallery->image) }}" alt="image" class="img-gallery">

@@ -32,11 +32,11 @@
                                 <td>{{ $extracurricular->description }}</td>
                                 <td>
                                     <img src="{{ $extracurricular->image_url }}" alt="{{ $extracurricular->name }}"
-                                        class="img-fluid" width="100">
+                                        class="img-table-lightbox" width="100">
                                 </td>
                                 <td>{{ $extracurricular->teacher->name }}</td>
                                 <td>
-                                    @if ($extracurricular->status == 1)
+                                    @if ($extracurricular->status == 'active')
                                         <span class="badge bg-success">Aktif</span>
                                     @else
                                         <span class="badge bg-danger">Tidak Aktif</span>

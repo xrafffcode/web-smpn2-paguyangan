@@ -71,7 +71,10 @@ class NewsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $news = $this->newsRepository->getNewsById($id);
+        $categories = $this->newsCategoryRepository->getAllNewsCategories();
+
+        return view('pages.admin.news-management.news.edit', compact('news', 'categories'));
     }
 
     /**
@@ -79,7 +82,11 @@ class NewsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->newsRepository->updateNews($request->all(), $id);
+
+        Swal::toast('Berhasil mengupdate berita', 'success');
+
+        return redirect()->route('admin.news.index');
     }
 
     /**

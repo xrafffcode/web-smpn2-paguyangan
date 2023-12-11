@@ -24,4 +24,14 @@ class TeacherController extends Controller
 
         return view('pages.frontend.about.teachers.index', compact('teachers'));
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $teacher = $this->teacherRepository->getTeacherById($id);
+
+        return view('pages.frontend.about.teachers.show', compact('teacher'));
+    }
 }

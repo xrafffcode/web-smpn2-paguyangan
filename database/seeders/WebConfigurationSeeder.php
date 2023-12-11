@@ -14,16 +14,19 @@ class WebConfigurationSeeder extends Seeder
     public function run(): void
     {
         WebConfiguration::create([
-            'name' => 'Laravel 10',
-            'description' => 'Laravel 10',
-            'email' => 'Laravel 10',
-            'phone' => 'Laravel 10',
-            'logo' => 'web-configurations/logo.png',
-            'address' => 'Laravel 10',
-            'map' => 'Laravel 10',
-            'facebook' => 'Laravel 10',
-            'instagram' => 'Laravel 10',
-            'youtube' => 'Laravel 10',
+            'name' => 'Lorem Ipsum',
+            'description' => 'Lorem Ipsum',
+            'email' => 'Lorem Ipsum',
+            'phone' => 'Lorem Ipsum',
+            'address' => 'Lorem Ipsum',
+            'map' => 'Lorem Ipsum',
+            'facebook' => 'Lorem Ipsum',
+            'instagram' => 'Lorem Ipsum',
+            'youtube' => 'Lorem Ipsum',
+            'headmaster_name' => 'Lorem Ipsum',
+            'headmaster_message' => 'Lorem Ipsum',
+            'vision' => 'Lorem Ipsum',
+            'mission' => 'Lorem Ipsum',
         ]);
     }
 }

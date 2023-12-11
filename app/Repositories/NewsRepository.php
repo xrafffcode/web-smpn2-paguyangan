@@ -7,9 +7,9 @@ use App\Models\News;
 
 class NewsRepository implements NewsRepositoryInterface
 {
-    public function getAllNews()
+    public function getAllNews($paginate = 10)
     {
-        return News::all();
+        return News::paginate($paginate);
     }
 
     public function getNewsById(string $id)

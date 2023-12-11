@@ -29,7 +29,7 @@ class LandingController extends Controller
 
         $banners = $this->bannerRepository->getAllBanners();
         $news = $this->newsRepository->getAllNews();
-        $galleries = $this->galleryRepository->getAllGalleries()->take(6);
+        $galleries = $this->galleryRepository->getAllGalleries()->take(3);
 
         return view('index', compact('banners', 'news', 'galleries'));
     }

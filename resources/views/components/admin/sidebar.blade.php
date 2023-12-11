@@ -55,6 +55,12 @@
                         <span class="link-title">Data Guru</span>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->is('admin/students*') ? ' active' : '' }}">
+                    <a href="{{ route('admin.students.index') }}" class="nav-link">
+                        <i class="link-icon" data-feather="users"></i>
+                        <span class="link-title">Data Ssiwa</span>
+                    </a>
+                </li>
                 <li class="nav-item {{ request()->is('admin/news-categories*', 'admin/news*') ? ' active' : '' }}">
                     <a class="nav-link" data-bs-toggle="collapse" href="#news-management" role="button"
                         aria-expanded="{{ request()->is('admin/news-categories*', 'admin/news*') ? ' true' : '' }}"

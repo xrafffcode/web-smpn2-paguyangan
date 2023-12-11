@@ -10,7 +10,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 {
     public function getAllTeachers()
     {
-        return Teacher::all();
+        return Teacher::orderBy('id', 'asc')->get();
     }
 
     public function getTeacherById(string $id)

@@ -65,7 +65,11 @@ class ExtracurricularController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $extracurricular = $this->extracurricularRepository->getExtracurricularById($id);
+
+        $teachers = $this->teacherRepository->getAllTeachers();
+
+        return view('pages.admin.extracurricular.edit', compact('extracurricular', 'teachers'));
     }
 
     /**
@@ -73,7 +77,11 @@ class ExtracurricularController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->extracurricularRepository->updateExtracurricular($request->all(), $id);
+
+        Swal::toast('Ekstrakurikuler berhasil diperbarui', 'success');
+
+        return redirect()->route('admin.extracurriculars.index');
     }
 
     /**
@@ -81,6 +89,10 @@ class ExtracurricularController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->extracurricularRepository->deleteExtracurricular($id);
+
+        Swal::toast('Ekstrakurikuler berhasil dihapus', 'success');
+
+        return redirect()->route('admin.extracurriculars.index');
     }
 }

@@ -1,7 +1,4 @@
 <x-layouts.admin title="Data Guru">
-    @push('plugin-styles')
-        <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/lightbox/css/lightbox.css') }}">
-    @endpush
 
     <div class="d-flex align-items-center justify-content-between">
         <nav class="page-breadcrumb mb-0">
@@ -31,11 +28,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    <a href="{{ asset($teacher->image) }}" data-lightbox="gambar"
-                                        data-title="{{ $teacher->name }}">
-                                        <img src="{{ asset($teacher->image) }}" alt="image"
-                                            class="img-table-lightbox">
-                                    </a>
+                                    <img src="{{ asset($teacher->image) }}" alt="image" class="img-table-lightbox">
                                 </td>
                                 <td>{{ $teacher->name }}</td>
                                 <td>{{ $teacher->nip }}</td>
@@ -65,14 +58,4 @@
     </div>
 
 
-    @push('plugin-scripts')
-        <script src="{{ asset('frontend/assets/plugins/lightbox/js/lightbox-plus-jquery.min.js') }}"></script>
-
-        <script>
-            lightbox.option({
-                'resizeDuration': 200,
-                'wrapAround': true
-            })
-        </script>
-    @endpush
 </x-layouts.admin>
