@@ -67,7 +67,9 @@ class GalleryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $gallery = $this->galleryRepository->getGalleryById($id);
+
+        return view('pages.admin.galleries.edit', compact('gallery'));
     }
 
     /**
@@ -75,7 +77,17 @@ class GalleryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $this->galleryRepository->updateGallery($request->all(), $id);
+
+            Swal::toast('Data berhasil diubah', 'success');
+
+            return redirect()->route('admin.galleries.index');
+        } catch (\Exception $e) {
+            Swal::error('Gagal', 'Galeri gagal diubah');
+
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
