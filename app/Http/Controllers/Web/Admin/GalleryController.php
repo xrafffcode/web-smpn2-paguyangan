@@ -83,6 +83,16 @@ class GalleryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $this->galleryRepository->deleteGallery($id);
+
+            Swal::toast('Data berhasil dihapus', 'success');
+
+            return redirect()->route('admin.galleries.index');
+        } catch (\Exception $e) {
+            Swal::error('Gagal', 'Galeri gagal dihapus');
+
+            return redirect()->back();
+        }
     }
 }
